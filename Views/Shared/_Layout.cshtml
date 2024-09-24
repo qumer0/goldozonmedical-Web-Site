@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Örneği</title>
+    <link rel="stylesheet" href="_Layout.css" a>
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <ul class="nav-links-left" id="navLinks">
+            <li><a href="#">Anasayfa</a></li>
+            <li><a href="#">Ürünler</a></li>
+            <li><a href="#">İletişim</a></li>
+        </ul>
+
+        <div class="logo-container">
+            <img src="img\2.png" alt="Logo">
+        </div>
+
+        <div class="auth-links" id="navLinks">
+            <li><a href="#" class="signup-btn">Kayıt Ol</a></li>
+            <li><a href="#" class="login-btn">Giriş</a></li>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3" style="background-color: beige;">
+            @RenderBody()
+        </main>
+    </div>
+    <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById("navLinks");
+            if (navLinks.style.width === "250px") {
+                navLinks.style.width = "0";
+            } else {
+                navLinks.style.width = "250px";
+            }
+        }
+    </script>
+
+</body>
+</html>
