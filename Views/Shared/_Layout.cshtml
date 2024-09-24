@@ -1,47 +1,64 @@
-<!DOCTYPE html>
-<html lang="tr">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Örneği</title>
-    <link rel="stylesheet" href="_Layout.css" a>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - goldozonmedical_Web_Site</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/goldozonmedical_Web_Site.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <div class="hamburgercontainer">
+        <ul class="hamburgerlist">
+            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+            <li><a href="#">Ürünler</a></li>
+            <li><a href="#">İletişim</a></li>
+            <li><a href="#" class="hamlogin-btn">Giriş</a></li>
+            <li><a href="#" class="hamsignup-btn">Kayıt Ol</a></li>
+            
+
+        </ul>
+    </div>
     <nav class="navbar">
         <ul class="nav-links-left" id="navLinks">
-            <li><a href="#">Anasayfa</a></li>
+            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
             <li><a href="#">Ürünler</a></li>
             <li><a href="#">İletişim</a></li>
         </ul>
 
         <div class="logo-container">
-            <img src="img\2.png" alt="Logo">
+            <img src="~/img/2.png" alt="Logo">
         </div>
 
-        <div class="auth-links" id="navLinks">
+        <div class="auth-links">
             <li><a href="#" class="signup-btn">Kayıt Ol</a></li>
             <li><a href="#" class="login-btn">Giriş</a></li>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="hamburger" id="hamburgerbutton" >&#9776;</div>
     </nav>
-    </header>
 
+    <script src="~/js/layout.js">    
+        
+
+    
+
+        
+    </script>
     <div class="container">
-        <main role="main" class="pb-3" style="background-color: beige;">
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <script>
-        function toggleMenu() {
-            var navLinks = document.getElementById("navLinks");
-            if (navLinks.style.width === "250px") {
-                navLinks.style.width = "0";
-            } else {
-                navLinks.style.width = "250px";
-            }
-        }
-    </script>
 
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Goldozon Medical - <a asp-area="" asp-controller="Home" asp-action="Privacy">Poliçemiz</a>   
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

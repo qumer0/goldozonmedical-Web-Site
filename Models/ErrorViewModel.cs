@@ -1,4 +1,4 @@
-namespace goldozonmedical.Models;
+namespace goldozonmedical_Web_Site.Models;
 
 public class ErrorViewModel
 {

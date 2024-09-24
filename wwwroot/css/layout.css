@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; 
+}
+.hamburgercontainer{
+  
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: -250px;
+  width: 250px;
+  background-color: #6F4E37;
+  padding-top: 20px;
+  padding-right: 33px;
+  
+}
+.hamburgerlist{
+  display: list-item;
+  
+  list-style-type: none;
+  height: 100vh;
+  
+  
+}
+
+.hamburgerlist li a {
+  margin-bottom: 20px;
+  color: #A67B5B;
+  
+  text-decoration: none;
+  font-size: 18px;
+  
+  
+}
+.hamburgerlist li{
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hamburgerlist li:hover{
+  background-color: #ECB176;
+  color: #ffffff;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #6F4E37;
+}
+
+.nav-links-left {
+  
+  grid-column-start: 1;
+  grid-column-end:4 ;
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  
+}
+
+
+
+.nav-links-left li a {
+  color: #A67B5B;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  
+}
+
+.nav-links-left li a:hover {
+  background-color: #ECB176;
+  color: #ffffff;
+}
+
+.logo-container {
+  
+  grid-column-start:4 ;
+  grid-column-end: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.logo-container img {
+  width: 65px;
+  height: 65px;
+}
+
+.auth-links {
+  display: flex;
+  gap: 15px;
+  grid-column-start: 5;
+  grid-column-end: 9;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.auth-links li {
+  list-style-type: none;
+}
+
+.signup-btn, .login-btn {
+  color: #FED8B1;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid #FED8B1;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.signup-btn:hover, .login-btn:hover {
+  background-color: #FED8B1;
+  color: #6F4E37;
+}
+.hamburger {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: #FED8B1;
+  grid-column-start: 7;
+  grid-column-end: 8;
+  cursor: pointer;
+  
+}
+
+
+
+@media only screen and (max-width: 769px){
+  .nav-links-left{
+      display: none;
+  }
+  .auth-links{
+      display: none;
+  }
+  .logo-container {
+      padding-left: 100px;
+  }
+
+  .hamburger{
+      display: block;
+  }
+  
+  
+}
+
+@media only screen and (max-width: 610px){
+  
+  .nav-links-left{
+      display: none;
+  }
+  .auth-links{
+      display: none;
+  }
+  .logo-container {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding-left: 50px;
+  }
+  
+
+  .hamburger{
+      display: block;
+  }
+  
+  
+}
+@media(min-width: 770px){
+  .hamburgercontainer{
+    display: none;
+  }
+}
+
+
+
+
