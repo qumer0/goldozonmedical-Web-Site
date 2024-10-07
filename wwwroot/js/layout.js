@@ -44,3 +44,4 @@ hamburgerButton.addEventListener('click', function (event) {
     event.stopPropagation();  // Tıklamanın menüyü kapatmaması için gerekli
     toggleMenu();
 });
+

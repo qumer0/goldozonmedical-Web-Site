@@ -18,10 +18,12 @@ public class HomeController : Controller
     {
         var sliderItems = new List<SliderItem>
             {
-                new SliderItem { ImageUrl = "~/images/slider1.jpg", Caption = "Slide 1" },
-                new SliderItem { ImageUrl = "~/images/slider2.jpg", Caption = "Slide 2" },
-                new SliderItem { ImageUrl = "~/images/slider3.jpg", Caption = "Slide 3" }
+                
+                new SliderItem { ImageUrl = "~/img/slider1.png", Caption = "Slide 1" },
+                new SliderItem { ImageUrl = "~/img/slider2.png", Caption = "Slide 2" },
+                new SliderItem { ImageUrl = "~/img/slider3.png", Caption = "Slide 3" } 
             };
+            
             
             return View(sliderItems);
     }

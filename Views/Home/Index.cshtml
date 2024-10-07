@@ -6,30 +6,51 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider Example</title>
-    <link rel="stylesheet" href="~/css/Home.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="slider">
-        <div class="slides">
+
+    <!-- Ana sayfa slider -->
+    <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="true" aria-label="Slide @i"></button>
+            }
+        </div>
+        <div class="carousel-inner">
             @foreach (var item in Model)
             {
-                <div class="slide">
-                    <img src="@Url.Content(item.ImageUrl)" alt="Slide Image">
-                    <p>@item.Caption</p>
+                var isActive = Model.IndexOf(item) == 0 ? "active" : ""; // İlk slider öğesi için "active" class'ı ekleniyor
+                <div class="carousel-item @isActive">
+                    <img src="@Url.Content(item.ImageUrl)" class="d-block w-100" alt="@item.Caption">
+
                 </div>
             }
         </div>
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Önceki</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sonraki</span>
+        </button>
     </div>
 
-    <script src="~/js/Home.js"></script>
+
+
+    
+
 </body>
 </html>
 

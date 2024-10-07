@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/goldozonmedical_Web_Site.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" asp-append-version="true"/>
+    <script src="~/Scripts/jquery-3.6.0.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js" asp-append-version="true"></script>
 </head>
 <body>
     <div class="hamburgercontainer">
@@ -52,12 +55,16 @@
         </ul>
 
         <div class="logo-container">
-            <img src="~/img/2.png" alt="Logo">
+            <img src="~/img/icon.png" alt="Logo">
         </div>
 
         <div class="auth-links">
-            <li><a href="#" class="signup-btn">Kayıt Ol</a></li>
-            <li><a href="#" class="login-btn">Giriş</a></li>
+            
+            <li><a href="#" id="registerBtn" class="signup-btn" data-bs-toggle="modal" data-bs-target="#registerModal">Kayıt Ol</a></li>
+            
+            <li><a href="#" id="loginBtn" class="login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş</a></li>
+
+
         </div>
         <div class="hamburger" id="hamburgerbutton" >&#9776;</div>
     </nav>
@@ -70,8 +77,83 @@
         
     </script>
     <div class="container">
-        <main role="main" class="pb-3">
+
+        <main role="main" class="pb-3" style="margin-top: 50px;">
             @RenderBody()
+                <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Giriş Yap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" method="post" action="@Url.Action("Login", "Account")">
+                        <div class="mb-3">
+                            <label for="emailLogin" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="emailLogin" name="email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordLogin" class="form-label">Şifre</label>
+                            <input type="password" class="form-control" id="passwordLogin" name="password" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Kayıt Ol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm" method="post" action="@Url.Action("Register", "Account")">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">İsim</label>
+                            <input type="text" class="form-control" id="name" name="name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="surname" class="form-label">Soyisim</label>
+                            <input type="text" class="form-control" id="surname" name="surname" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="email" name="email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Şifre</label>
+                            <input type="password" class="form-control" id="password" name="password" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="tckn" class="form-label">TCKN</label>
+                            <input type="text" class="form-control" id="tckn" name="tckn" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="referral" class="form-label">Referans Kodu</label>
+                            <input type="text" class="form-control" id="referral" name="referral" />
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Kayıt Ol</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
         </main>
     </div>
 
