@@ -1,11 +1,8 @@
-﻿@using goldozonmedical_Web_Site.Models
-
-@model List<SliderItem>
+﻿@model List<Product>
 
 @{
-    ViewData["Title"] = "Home Page";
+    var sliderItems = ViewBag.SliderItems as List<SliderItem>; // Slider öğelerini ViewBag'den alıyoruz
 }
-
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -14,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Anasayfa</title>
     <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Home.css" />
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
 </head>
@@ -22,18 +20,17 @@
     <!-- Ana sayfa slider -->
     <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            @for (int i = 0; i < Model.Count; i++)
+            @for (int i = 0; i < sliderItems.Count; i++)
             {
                 <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="true" aria-label="Slide @i"></button>
             }
         </div>
         <div class="carousel-inner">
-            @foreach (var item in Model)
+            @foreach (var item in sliderItems)
             {
-                var isActive = Model.IndexOf(item) == 0 ? "active" : ""; // İlk slider öğesi için "active" class'ı ekleniyor
+                var isActive = sliderItems.IndexOf(item) == 0 ? "active" : "";
                 <div class="carousel-item @isActive">
                     <img src="@Url.Content(item.ImageUrl)" class="d-block w-100" alt="@item.Caption">
-
                 </div>
             }
         </div>
@@ -47,11 +44,48 @@
         </button>
     </div>
 
-
-
-    
+    <!-- Ürünler kısmı -->
+    <div class="container products-section" style="margin-top: 20px;">
+        <h5 style="text-align: center;">Ürünlerimiz</h5>
+        <div class="row">
+            @foreach (var product in Model.Select((item, index) => new { item, index }))
+            {
+                var isEven = product.index % 2 == 0; // İlk ürün için true, ikinci ürün için false, her seferinde tekrar eder
+                <div class="col-md-12 product-card">
+                    <div class="card mb-4 shadow-sm @((isEven) ? "card-left" : "card-right")">
+                        <div class="row no-gutters">
+                            @if (isEven)
+                            {
+                                <div class="col-md-6">
+                                    <img src="@Url.Content(product.item.ImageUrl)" class="card-img" alt="@product.item.Name" />
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@product.item.Name</h5>
+                                        <p class="card-text">@product.item.Description</p>
+                                        <small class="text-muted">@product.item.Price.ToString("C")</small>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-6 order-md-2">
+                                    <img src="@Url.Content(product.item.ImageUrl)" class="card-img" alt="@product.item.Name" />
+                                </div>
+                                <div class="col-md-6 order-md-1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@product.item.Name</h5>
+                                        <p class="card-text">@product.item.Description</p>
+                                        <small class="text-muted">@product.item.Price.ToString("C")</small>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 
 </body>
 </html>
-
-

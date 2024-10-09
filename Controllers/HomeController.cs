@@ -24,8 +24,15 @@ public class HomeController : Controller
                 new SliderItem { ImageUrl = "~/img/slider3.png", Caption = "Slide 3" } 
             };
             
-            
-            return View(sliderItems);
+            ViewBag.SliderItems=sliderItems;//hepsini toparladık. 
+
+             var products = new List<Product>
+            {
+                new Product { Id = 1, Name = "Ürün 1", Description = "Ürün 1 açıklaması", ImageUrl = "~/img/maymun.jpg", Price = 99.99M },
+                new Product { Id = 2, Name = "Ürün 2", Description = "Ürün 2 açıklaması", ImageUrl = "~/img/product2.jpg", Price = 199.99M },
+                new Product { Id = 3, Name = "Ürün 3", Description = "Ürün 3 açıklaması", ImageUrl = "~/img/product3.jpg", Price = 299.99M }
+            };
+            return View(products);// ürünler view a gelsin.
     }
 
     public IActionResult Privacy()
