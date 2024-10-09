@@ -8,54 +8,17 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 /* Slider */
-.slider {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 15px; /* Slider köşeleri yuvarlama */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Slider için gölge */
-    transition: box-shadow 0.3s ease;
+
+.carousel-inner img {
+    border-radius: 15px; /* Border radius eklemek için */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box shadow eklemek için */
 }
 
-.slider:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Slider hover'da gölge artışı */
-}
 
-.carousel-item {
-    border-radius: 15px; /* Her bir slide için köşe yuvarlama */
-    overflow: hidden; /* İçerik taşmasını engelle */
-}
 
-.carousel-item img {
-    border-radius: 15px; /* Slide içindeki resimler için köşe yuvarlama */
-    width: 100%;
-    height: auto;
-}
 
-.slides {
-    display: flex;
-    width: 300%;
-    transition: transform 0.5s ease;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 18px;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 5;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
 
 /* Card layout */
 .product-card {

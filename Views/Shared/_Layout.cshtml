@@ -14,35 +14,19 @@
 <body>
     <div class="hamburgercontainer">
         <ul class="hamburgerlist">
+            <div class="logo-container-ham">
+                <img src="~/img/icon.png" alt="Logo">
+            </div>
             
-            
-
-            
-
-
-
             <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
 
-
-            
-
-
-            <li><a href="#">Ürünler</a></li>
-
-
-            
-	
+            <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
 
             <li><a asp-controller="Contact" asp-action="Contact">İletişim</a></li>
 
+            <li> <a href="#" class="hamlogin-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Giriş</a></li>
 
-            
-
-            <li> <a href="#" class="hamlogin-btn">Giriş</a></li>
-
-
-            
-            <li><a href="#" class="hamsignup-btn">Kayıt Ol</a></li>
+            <li><a href="#" class="hamsignup-btn" data-bs-toggle="modal" data-bs-target="#registerModal">Kayıt Ol</a></li>
             
 
         </ul>
@@ -50,7 +34,7 @@
     <nav class="navbar">
         <ul class="nav-links-left" id="navLinks">
             <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
-            <li><a href="#">Ürünler</a></li>
+            <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
             <li><a asp-controller="Contact" asp-action="Contact" >İletişim</a></li>
         </ul>
 

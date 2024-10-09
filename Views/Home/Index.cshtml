@@ -25,12 +25,12 @@
                 <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="true" aria-label="Slide @i"></button>
             }
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="border-radius: 15px;">
             @foreach (var item in sliderItems)
             {
                 var isActive = sliderItems.IndexOf(item) == 0 ? "active" : "";
-                <div class="carousel-item @isActive">
-                    <img src="@Url.Content(item.ImageUrl)" class="d-block w-100" alt="@item.Caption">
+                <div class="carousel-item @isActive" >
+                    <img src="@Url.Content(item.ImageUrl)" class="d-block w-100" alt="@item.Caption" style="border-radius: 15px;">
                 </div>
             }
         </div>
@@ -44,9 +44,12 @@
         </button>
     </div>
 
+   
+
+
     <!-- Ürünler kısmı -->
-    <div class="container products-section" style="margin-top: 20px;">
-        <h5 style="text-align: center;">Ürünlerimiz</h5>
+    <div class="container products-section" style="margin-top: 30px;">
+        <h2 id="products" class="products-title-with-lines" style="text-align: center; margin-bottom: 30px;">Ürünlerimiz</h2>
         <div class="row">
             @foreach (var product in Model.Select((item, index) => new { item, index }))
             {
@@ -63,7 +66,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">@product.item.Name</h5>
                                         <p class="card-text">@product.item.Description</p>
-                                        <small class="text-muted">@product.item.Price.ToString("C")</small>
+                                        
                                     </div>
                                 </div>
                             }
@@ -76,7 +79,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">@product.item.Name</h5>
                                         <p class="card-text">@product.item.Description</p>
-                                        <small class="text-muted">@product.item.Price.ToString("C")</small>
+                                        
                                     </div>
                                 </div>
                             }

@@ -1,0 +1,83 @@
+@model List<goldozonmedical_Web_Site.Models.Distributors>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribütör Listesi</title>
+    <!-- CSS dosyasını buraya bağla -->
+    <link rel="stylesheet" href="~/css/distributor.css">
+</head>
+<body>
+    <h2>Distribütör Listesi</h2>
+
+    <!-- Şehir ve İlçe Filtreleme Formu -->
+    <form method="get" action="/Distributor/Index">
+        <div>
+            <label>Şehir: </label>
+            <select id="cityDropdown" name="city" onchange="loadDistricts()">
+                <option value="">Tüm Şehirler</option>
+                @foreach (var city in ViewBag.Cities)
+                {
+                    <option value="@city.Name">@city.Name</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label>İlçe: </label>
+            <select id="districtDropdown" name="district">
+                <option value="">Tüm İlçeler</option>
+                @if (ViewBag.Districts != null)
+                {
+                    foreach (var district in ViewBag.Districts)
+                    {
+                        <option value="@district.Name">@district.Name</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <input type="submit" value="Filtrele" />
+    </form>
+
+    <!-- Distribütör Listesi -->
+    <table>
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Şehir</th>
+                <th>İlçe</th>
+                <th>Adres</th>
+                <th>Telefon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.Any())
+            {
+                @foreach (var distributor in Model)
+                {
+                    <tr>
+                        <td>@distributor.name</td>
+                        <td>@distributor.city</td>
+                        <td>@distributor.district</td>
+                        <td>@distributor.adress</td>
+                        <td>@distributor.tel</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" style="text-align: center;">Aradığınız kritere uygun veri bulunamadı.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script src="~/js/distributor.js">
+
+    </script>
+</body>
+</html>

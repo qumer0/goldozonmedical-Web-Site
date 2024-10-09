@@ -1,6 +1,7 @@
 
 var hamburgerButton = document.getElementById("hamburgerbutton")
 var ham = document.querySelector(".hamburgercontainer")
+var products = document.getElementById("goToProducts")
 
 
 
@@ -45,3 +46,11 @@ hamburgerButton.addEventListener('click', function (event) {
     toggleMenu();
 });
 
+
+// 'goToProducts' id'sine sahip olan a etiketine click event listener ekle
+products.addEventListener("click", function(e) {
+    e.preventDefault(); // Linkin varsayılan davranışını durdur
+    console.log("Ürünlerimiz linkine tıklandı!"); // Konsola mesaj yazdır
+
+   // Diğer işlemleri burada gerçekleştirebilirsiniz (örn. sayfa kaydırma)
+});

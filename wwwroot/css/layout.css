@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background-color: #f7f0e9; 
+  background-image: linear-gradient(120deg,#f7f0e9d7,#f8ece0d7,#f2d6b9cf,#f8ece0cf,#f7f0e9d6); 
 }
 .hamburgercontainer{
   border: 1px solid;
@@ -18,7 +18,7 @@ body {
   border-radius: 5px;
   position: fixed;
   z-index: 10;
-  top: 103px;
+  top: 0px;
   left: -250px;
   width: 250px;
   background-image: linear-gradient(120deg,#6F4E37,#a47350,#6F4E37);
@@ -195,6 +195,19 @@ body {
 
   .hamburger{
       display: block;
+  }
+  .logo-container img{
+    display:  none;
+  }
+  .logo-container-ham {
+    display: flex;
+    justify-content: center;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+  }
+  .logo-container-ham img{
+    width: 65px;
+    height: 65px;
   }
   
   
