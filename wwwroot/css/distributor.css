@@ -13,40 +13,41 @@ h2 {
     margin-top: 20px;
 }
 
-/* Form düzeni */
-form {
+/* Özgül form düzeni */
+.distributor-form form {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 30px;
 }
 
-form div {
+.distributor-form form div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-label {
+.distributor-form label {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-select, input[type="submit"] {
+.distributor-form select, 
+.distributor-form input[type="submit"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }
 
-input[type="submit"] {
+.distributor-form input[type="submit"] {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+.distributor-form input[type="submit"]:hover {
     background-color: #45a049;
 }
 
@@ -81,7 +82,7 @@ tr:hover {
 
 /* Mobil uyumluluk */
 @media (max-width: 768px) {
-    form {
+    .distributor-form form {
         flex-direction: column;
         gap: 10px;
     }

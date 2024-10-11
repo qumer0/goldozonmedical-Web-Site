@@ -13,34 +13,37 @@
     <h2>Distribütör Listesi</h2>
 
     <!-- Şehir ve İlçe Filtreleme Formu -->
-    <form method="get" action="/Distributor/Index">
-        <div>
-            <label>Şehir: </label>
-            <select id="cityDropdown" name="city" onchange="loadDistricts()">
-                <option value="">Tüm Şehirler</option>
-                @foreach (var city in ViewBag.Cities)
-                {
-                    <option value="@city.Name">@city.Name</option>
-                }
-            </select>
-        </div>
-
-        <div>
-            <label>İlçe: </label>
-            <select id="districtDropdown" name="district">
-                <option value="">Tüm İlçeler</option>
-                @if (ViewBag.Districts != null)
-                {
-                    foreach (var district in ViewBag.Districts)
+    <div class="distributor-form">
+        <form method="get" action="/Distributor/Index">
+            <div>
+                <label>Şehir: </label>
+                <select id="cityDropdown" name="city" onchange="loadDistricts()">
+                    <option value="">Tüm Şehirler</option>
+                    @foreach (var city in ViewBag.Cities)
                     {
-                        <option value="@district.Name">@district.Name</option>
+                        <option value="@city.Name">@city.Name</option>
                     }
-                }
-            </select>
-        </div>
+                    }
+                </select>
+            </div>
 
-        <input type="submit" value="Filtrele" />
-    </form>
+            <div>
+                <label>İlçe: </label>
+                <select id="districtDropdown" name="district">
+                    <option value="">Tüm İlçeler</option>
+                    @if (ViewBag.Districts != null)
+                    {
+                        foreach (var district in ViewBag.Districts)
+                        {
+                            <option value="@district.Name">@district.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <input type="submit" value="Filtrele" />
+        </form>
+    </div>
 
     <!-- Distribütör Listesi -->
     <table>

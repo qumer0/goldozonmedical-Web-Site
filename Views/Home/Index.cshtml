@@ -1,5 +1,17 @@
 ﻿@model List<Product>
 
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    string layoutToUse = HttpContextAccessor.HttpContext.Session.GetString("UserLoggedIn") == "true" 
+        ? "~/Views/Shared/LayoutAfterLogin.cshtml" 
+        : "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Layout = layoutToUse;
+}
+
 @{
     var sliderItems = ViewBag.SliderItems as List<SliderItem>; // Slider öğelerini ViewBag'den alıyoruz
 }
@@ -43,9 +55,6 @@
             <span class="visually-hidden">Sonraki</span>
         </button>
     </div>
-
-   
-
 
     <!-- Ürünler kısmı -->
     <div class="container products-section" style="margin-top: 30px;">
