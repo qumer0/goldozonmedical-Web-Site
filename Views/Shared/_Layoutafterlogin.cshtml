@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - goldozonmedical_Web_Site</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/goldozonmedical_Web_Site.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" asp-append-version="true"/>
+    <script src="~/Scripts/jquery-3.6.0.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js" asp-append-version="true"></script>
+</head>
+
+<style>
+    .profile-container {
+    position: relative;
+}
+
+.profile-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.profile-dropdown ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.profile-dropdown ul li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-dropdown ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.profile-dropdown ul li:hover {
+    background-color: #f7f7f7;
+}
+
+</style>
+<body>
+    <div class="hamburgercontainer">
+        <ul class="hamburgerlist">
+            <div class="logo-container-ham">
+                <img src="~/img/icon.png" alt="Logo">
+            </div>
+            
+            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+
+            <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
+
+            <li><a asp-controller="Contact" asp-action="Contact">İletişim</a></li>
+
+            <li> 
+                
+                <div class="profile-container">
+                    <img src="~/img/maymun.jpg" alt="User Profile" class="profile-photo" id="profilePhoto1">
+                    <div id="userOptions1" class="profile-dropdown" style="display: none;">
+                        <ul>
+                            <li><a href="#">Profili Düzenle</a></li>
+                            <li><a href="#">Ürünlerim</a></li>
+                            <li><a href="@Url.Action("Logout", "Account")">Çıkış Yap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            
+            </li>
+           
+
+        </ul>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-links-left" id="navLinks">
+            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+            <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
+            <li><a asp-controller="Contact" asp-action="Contact" >İletişim</a></li>
+        </ul>
+
+        <div class="logo-container">
+            <img src="~/img/icon.png" alt="Logo">
+        </div>
+
+        <div class="auth-links">
+            
+        <div class="profile-container">
+                <img src="~/img/maymun.jpg" alt="User Profile" class="profile-photo" id="profilePhoto2">
+                <div id="userOptions2" class="profile-dropdown" style="display: none;">
+                    <ul>
+                        <li><a href="#">Profili Düzenle</a></li>
+                        <li><a href="#">Ürünlerim</a></li>
+                        <li><a href="@Url.Action("Logout", "Account")">Çıkış Yap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="hamburger" id="hamburgerbutton" >&#9776;</div>
+    </nav>
+
+    <script src="~/js/layout.js">
+
+
+    </script>
+
+    <div class="container">
+
+        <main role="main" class="pb-3" style="margin-top: 50px;">
+            @RenderBody()
+                
+    
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            &copy; 2024 - Goldozon Medical - <a asp-area="" asp-controller="Home" asp-action="Privacy">Poliçemiz</a>   
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

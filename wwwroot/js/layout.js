@@ -47,10 +47,30 @@ hamburgerButton.addEventListener('click', function (event) {
 });
 
 
-// 'goToProducts' id'sine sahip olan a etiketine click event listener ekle
-products.addEventListener("click", function(e) {
-    e.preventDefault(); // Linkin varsayılan davranışını durdur
-    console.log("Ürünlerimiz linkine tıklandı!"); // Konsola mesaj yazdır
 
-   // Diğer işlemleri burada gerçekleştirebilirsiniz (örn. sayfa kaydırma)
+
+document.addEventListener('DOMContentLoaded', function () {
+    // İlk profil fotoğrafı için
+    var profilePhoto1 = document.getElementById('profilePhoto1');
+    var userOptions1 = document.getElementById('userOptions1');
+
+    profilePhoto1.addEventListener('click', function () {
+        if (userOptions1.style.display === 'none' || userOptions1.style.display === '') {
+            userOptions1.style.display = 'block';
+        } else {
+            userOptions1.style.display = 'none';
+        }
+    });
+
+    // İkinci profil fotoğrafı için
+    var profilePhoto2 = document.getElementById('profilePhoto2');
+    var userOptions2 = document.getElementById('userOptions2');
+
+    profilePhoto2.addEventListener('click', function () {
+        if (userOptions2.style.display === 'none' || userOptions2.style.display === '') {
+            userOptions2.style.display = 'block';
+        } else {
+            userOptions2.style.display = 'none';
+        }
+    });
 });

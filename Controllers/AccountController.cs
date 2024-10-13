@@ -6,13 +6,13 @@ public class AccountController : Controller
     public ActionResult Login(string email, string password)
     {
         // Login logic (örneğin: kullanıcıyı doğrulama)
-        if (/*login successful*/ true)
+        if (email=="merdgn@hotmail.com" && password=="1")
         {
             // Kullanıcı bilgilerini session'da tut
             HttpContext.Session.SetString("UserLoggedIn", "true");
             HttpContext.Session.SetString("UserEmail", email);
-
-            return RedirectToAction("Index", "Home");
+            
+            return RedirectToAction("Index", "PriceProduct");
         }
         else
         {
