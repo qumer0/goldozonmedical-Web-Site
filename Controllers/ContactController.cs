@@ -4,12 +4,18 @@ namespace goldozonmedical_Web_Site.Controllers
 {
 public class ContactController : Controller
 {
-    public IActionResult Index()
+
+    public ActionResult Index()
     {
-         return View();
-    }
-    public ActionResult Contact()
-    {
+        var email = HttpContext.Session.GetString("email");
+
+        if (email != null)
+        {
+            ViewBag.layout = "~/Views/Shared/_Layoutafterlogin.cshtml";
+        }else
+        {
+            ViewBag.layout = "~/Views/Shared/_Layout.cshtml";
+        } 
         return View();
     }
 }

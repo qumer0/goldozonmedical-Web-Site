@@ -47,6 +47,17 @@ namespace goldozonmedical_Web_Site.Controllers
             ViewBag.Cities = cities;
             ViewBag.Districts = !string.IsNullOrEmpty(city) ? districts.Where(d => d.CityId == cities.First(c => c.Name == city).Id).ToList() : new List<District>();
 
+
+            var email = HttpContext.Session.GetString("email");
+
+            if (email != null)
+            {
+                ViewBag.layout = "~/Views/Shared/_Layoutafterlogin.cshtml";
+            }else
+            {
+                ViewBag.layout = "~/Views/Shared/_Layout.cshtml";
+            }  
+
             return View(distributors);
         }
 

@@ -9,8 +9,9 @@ public class AccountController : Controller
         if (email=="merdgn@hotmail.com" && password=="1")
         {
             // Kullanıcı bilgilerini session'da tut
-            HttpContext.Session.SetString("UserLoggedIn", "true");
-            HttpContext.Session.SetString("UserEmail", email);
+            HttpContext.Session.SetString("email", email);
+            HttpContext.Session.SetString("id", "1");
+            
             
             return RedirectToAction("Index", "PriceProduct");
         }

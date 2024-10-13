@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -63,33 +63,24 @@
             
             <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
 
-            <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
+            <li><a asp-controller="Distributor" asp-action="Index">Ürünlerim</a></li>
 
             <li><a asp-controller="Contact" asp-action="Contact">İletişim</a></li>
 
-            <li> 
-                
-                <div class="profile-container">
-                    <img src="~/img/maymun.jpg" alt="User Profile" class="profile-photo" id="profilePhoto1">
-                    <div id="userOptions1" class="profile-dropdown" style="display: none;">
-                        <ul>
-                            <li><a href="#">Profili Düzenle</a></li>
-                            <li><a href="#">Ürünlerim</a></li>
-                            <li><a href="@Url.Action("Logout", "Account")">Çıkış Yap</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <li><a asp-controller="Contact" asp-action="Index">Profil</a></li>
+
+            <li><a asp-controller="Account" asp-action="Logout">Çıkış</a></li>
+
             
-            </li>
            
 
         </ul>
     </div>
     <nav class="navbar">
         <ul class="nav-links-left" id="navLinks">
-            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+            <li><a asp-controller="PriceProduct" asp-action="Index">Ürünler</a></li>
             <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
-            <li><a asp-controller="Contact" asp-action="Contact" >İletişim</a></li>
+            <li><a asp-controller="Contact" asp-action="Index" >İletişim</a></li>
         </ul>
 
         <div class="logo-container">

@@ -50,18 +50,7 @@ hamburgerButton.addEventListener('click', function (event) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // İlk profil fotoğrafı için
-    var profilePhoto1 = document.getElementById('profilePhoto1');
-    var userOptions1 = document.getElementById('userOptions1');
-
-    profilePhoto1.addEventListener('click', function () {
-        if (userOptions1.style.display === 'none' || userOptions1.style.display === '') {
-            userOptions1.style.display = 'block';
-        } else {
-            userOptions1.style.display = 'none';
-        }
-    });
-
+ 
     // İkinci profil fotoğrafı için
     var profilePhoto2 = document.getElementById('profilePhoto2');
     var userOptions2 = document.getElementById('userOptions2');
