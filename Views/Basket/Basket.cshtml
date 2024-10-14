@@ -1,0 +1,42 @@
+@model List<goldozonmedical_Web_Site.Models.ProductPrice>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepetiniz</title>
+    <link rel="stylesheet" href="~/css/basket.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sepetiniz</h2>
+        @if (Model.Count == 0)
+        {
+            <p>Sepetinizde ürün bulunmamaktadır.</p>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var product in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="basket-card">
+                            <img src="@Url.Content(product.ImageUrl)" alt="@product.Name" class="basket-image" />
+                            <div class="basket-info">
+                                <h4>@product.Name</h4>
+                                <p>Fiyat: @product.DiscountedPrice ₺</p>
+                                <a href="@Url.Action("RemoveFromCart", "Basket", new { id = product.Id })" class="btn btn-danger remove-btn">Ürünü Kaldır</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        <div class="shipping-info">
+            <h4>Gönderim Adresi</h4>
+            <p>[Kullanıcının adres bilgileri]</p>
+        </div>
+    </div>
+</body>
+</html>

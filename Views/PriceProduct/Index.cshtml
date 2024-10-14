@@ -1,22 +1,4 @@
-@model List<goldozonmedical_Web_Site.Models.ProductPrice>
-
-@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-
-@{
-    
-    Layout = "~/Views/Shared/_Layoutafterlogin.cshtml";
-}
-
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ürünler</title>
-    <link rel="stylesheet" href="~/css/products.css">
-</head>
-<body>
-   <div class="container">
+<div class="container">
     <div class="row">
         @foreach (var product in Model)
         {
@@ -27,16 +9,11 @@
                         <h4 class="product-name">@product.Name</h4>
                         <p class="product-price">Eski Fiyat: <span class="original-price">@product.Price ₺</span></p>
                         <p class="discounted-price">İndirimli Fiyat: <span>@product.DiscountedPrice ₺</span></p>
-                        <a href="#" class="btn btn-primary buy-btn">Satın Al</a>
+                        <a href="@Url.Action("AddToCart", "Basket", new { id = product.Id })" class="btn btn-secondary add-to-cart-btn">Sepete Ekle</a>
+                        <a href="@Url.Action("Buy", "Basket", new { id = product.Id })" class="btn btn-primary buy-btn">Satın Al</a>
                     </div>
                 </div>
             </div>
         }
     </div>
 </div>
-
-
-
-</body>
-</html>
-
