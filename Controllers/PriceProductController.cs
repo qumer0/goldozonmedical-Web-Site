@@ -12,14 +12,17 @@ public class PriceProductController : Controller
             new ProductPrice { Id = 3, Name = "Ürün 3", ImageUrl = "~/img/maymun.jpg", Price = 200m, DiscountedPrice = 180m }
         };
 
-                // Kullanıcının giriş yapıp yapmadığını kontrol et
-            // Retrieve the username from session
+        // Kullanıcının giriş yapıp yapmadığını kontrol et
+        
         var email = HttpContext.Session.GetString("email");
-
-        if (email == null)
+        if (email != null)
+        {
+            ViewBag.layout = "~/Views/Shared/_Layoutafterlogin.cshtml";
+        }else
         {
             return RedirectToAction("Index", "Home");
-        }        
+        }         
+
        
         return View(products);
     }

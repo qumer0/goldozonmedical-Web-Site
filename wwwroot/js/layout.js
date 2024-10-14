@@ -49,17 +49,4 @@ hamburgerButton.addEventListener('click', function (event) {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
- 
-    // İkinci profil fotoğrafı için
-    var profilePhoto2 = document.getElementById('profilePhoto2');
-    var userOptions2 = document.getElementById('userOptions2');
 
-    profilePhoto2.addEventListener('click', function () {
-        if (userOptions2.style.display === 'none' || userOptions2.style.display === '') {
-            userOptions2.style.display = 'block';
-        } else {
-            userOptions2.style.display = 'none';
-        }
-    });
-});

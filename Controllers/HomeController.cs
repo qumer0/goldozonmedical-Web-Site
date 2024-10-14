@@ -32,6 +32,16 @@ public class HomeController : Controller
                 new Product { Id = 2, Name = "Ürün 2", Description = "Ürün 2 açıklaması", ImageUrl = "~/img/maymun.jpg"},
                 new Product { Id = 3, Name = "Ürün 3", Description = "Ürün 3 açıklaması", ImageUrl = "~/img/maymun.jpg"}
             };
+
+            var email = HttpContext.Session.GetString("email");
+
+            if (email != null)
+            {
+            ViewBag.layout = "~/Views/Shared/_Layoutafterlogin.cshtml";
+            }else
+            {
+            ViewBag.layout = "~/Views/Shared/_Layout.cshtml";
+            } 
             return View(products);// ürünler view a gelsin.
     }
 
