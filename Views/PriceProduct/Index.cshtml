@@ -24,6 +24,7 @@
                         <p class="discounted-price">İndirimli Fiyat: <span>@product.DiscountedPrice ₺</span></p>
                         <a href="@Url.Action("AddToCart", "Basket", new { id = product.Id })" class="btn btn-secondary add-to-cart-btn">Sepete Ekle</a>
                         <a href="@Url.Action("Buy", "Basket", new { id = product.Id })" class="btn btn-primary buy-btn">Satın Al</a>
+
                     </div>
                 </div>
             </div>

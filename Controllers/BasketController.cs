@@ -4,48 +4,47 @@ using System.Collections.Generic;
 
 public class BasketController : Controller
 {
-    
     private static List<ProductPrice> cart = new List<ProductPrice>();
 
-   
     public ActionResult AddToCart(int id)
     {
         var product = GetProductById(id); 
         if (product != null)
         {
             cart.Add(product);
+            ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
         }
         return RedirectToAction("Index", "PriceProduct");
     }
 
-  
     public ActionResult Buy(int id)
     {
         var product = GetProductById(id);
         if (product != null)
         {
             cart.Add(product);
+            ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
         }
         return RedirectToAction("Basket");
     }
 
     public ActionResult Basket()
     {
+        ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını ViewBag'e atıyoruz
         return View(cart);
     }
 
-    
     public ActionResult RemoveFromCart(int id)
     {
         var product = cart.Find(p => p.Id == id);
         if (product != null)
         {
             cart.Remove(product);
+            ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
         }
         return RedirectToAction("Basket");
     }
 
-   
     private ProductPrice GetProductById(int id)
     {
         var products = new List<ProductPrice>

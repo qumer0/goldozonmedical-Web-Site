@@ -30,9 +30,6 @@
 
             <li><a asp-controller="Account" asp-action="Logout">Çıkış</a></li>
 
-            
-           
-
         </ul>
     </div>
     <nav class="navbar">
@@ -49,10 +46,11 @@
         <div class="auth-links">
             
         <ul class="nav-links-left" id="navLinks">
-            <li class="nav-item">
-                <a href="@Url.Action("Basket", "Basket")" class="nav-link">
-                <i class="fas fa-shopping-cart"></i> 
-                <!--<span class="badge badge-pill badge-danger">cart.Count()</span>-->
+            
+            <li>
+                <a asp-controller="Basket" asp-action="Basket">
+                    <img src="~/img/basket.png" alt="Basket" />
+                    <span id="cart-count" class="cart-count">@ViewBag.CartItemCount</span>
                 </a>
             </li>
 
@@ -64,9 +62,6 @@
     </nav>
     <script src="~/js/layout.js">    
         
-
-    
-
         
     </script>
   
@@ -76,7 +71,6 @@
         <main role="main" class="pb-3" style="margin-top: 50px;">
             @RenderBody()
                 
-    
         </main>
     </div>
 

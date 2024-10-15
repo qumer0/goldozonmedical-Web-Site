@@ -1,0 +1,63 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.quantity-section {
+    margin-top: 10px;
+}
+
+.quantity-section input {
+    width: 50px;
+    padding: 5px;
+}
+
+
+.basket-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.basket-image img {
+    max-width: 150px; /* Resmin genişliği */
+    max-height: 150px; /* Resmin yüksekliği */
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.basket-details {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.basket-details h4 {
+    margin: 0 0 10px 0;
+}
+
+.basket-details p {
+    margin: 5px 0;
+}
+
+.basket-details .remove-btn {
+    margin-top: 10px;
+}
+
+.shipping-info {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.shipping-info h4 {
+    margin-bottom: 10px;
+}
