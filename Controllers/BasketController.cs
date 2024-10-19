@@ -29,7 +29,16 @@ public class BasketController : Controller
     }
 
     public ActionResult Basket()
-    {
+    {        
+        var email = HttpContext.Session.GetString("email");   
+        if (email != null)
+        {
+            
+            ViewBag.layout = "~/Views/Shared/_Layoutafterlogin.cshtml";
+        }else
+        {
+            ViewBag.layout = "~/Views/Shared/_Layout.cshtml";
+        } 
         ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını ViewBag'e atıyoruz
         return View(cart);
     }
