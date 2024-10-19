@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,7 +8,6 @@
     <title>@ViewData["Title"] - goldozonmedical_Web_Site</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/goldozonmedical_Web_Site.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Content/bootstrap.css" asp-append-version="true"/>
     <script src="~/Scripts/jquery-3.6.0.min.js" asp-append-version="true"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js" asp-append-version="true"></script>
@@ -20,11 +21,18 @@
                 <img src="~/img/icon.png" alt="Logo">
             </div>
             
-            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+            <li><a asp-controller="PriceProduct" asp-action="Index">Ürünler</a></li>
 
-            <li><a asp-controller="Distributor" asp-action="Index">Ürünlerim</a></li>
+            <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
 
-            <li><a asp-controller="Contact" asp-action="Contact">İletişim</a></li>
+            <li><a asp-controller="Contact" asp-action="Index">İletişim</a></li>
+
+            <li>
+                <a asp-controller="Basket" asp-action="Basket">
+                    <img src="~/img/basket.png" alt="Basket" />
+                    <span id="cart-count" class="cart-count">@ViewBag.CartItemCount</span>
+                </a>
+            </li>
 
             <li><a asp-controller="Contact" asp-action="Index">Profil</a></li>
 
@@ -37,6 +45,7 @@
             <li><a asp-controller="PriceProduct" asp-action="Index">Ürünler</a></li>
             <li><a asp-controller="Distributor" asp-action="Index">Distribütörler</a></li>
             <li><a asp-controller="Contact" asp-action="Index" >İletişim</a></li>
+            
         </ul>
 
         <div class="logo-container">
@@ -57,6 +66,7 @@
             <li><a asp-controller="Contact" asp-action="Index">Profil</a></li>
             <li><a asp-controller="Account" asp-action="Logout">Çıkış</a></li>
         </ul>
+        </div>
            
         <div class="hamburger" id="hamburgerbutton" >&#9776;</div>
     </nav>
