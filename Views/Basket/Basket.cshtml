@@ -20,21 +20,22 @@
         {
             @foreach (var product in Model)
             {
-                <div class="basket-item">
+            <div class="basket-item">
                 <div class="basket-image">
                     <img src="@Url.Content(product.ImageUrl)" alt="@product.Name" />
                 </div>
                 <div class="basket-details">
                     <h4>@product.Name</h4>
                     <p>Fiyat: @product.DiscountedPrice ₺</p>
-                <div class="quantity-section">
-                    <label for="quantity">Adet: </label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" />
+                    <div class="quantity-section">
+                        <label for="quantity">Adet: </label>
+                        <input type="number" id="quantity" name="quantity" value="@product.Quantity" min="1" max="10" />
+                    </div>
+                    <a href="@Url.Action("RemoveFromCart", "Basket", new { id = product.Id })" class="btn btn-danger remove-btn">Ürünü Kaldır</a>
                 </div>
-            <a href="@Url.Action("RemoveFromCart", "Basket", new { id = product.Id })" class="btn btn-danger remove-btn">Ürünü Kaldır</a>
-        </div>
-    </div>
-}
+            </div>
+        }
+        
 
         }
         <div class="shipping-info">

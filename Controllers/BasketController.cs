@@ -7,26 +7,49 @@ public class BasketController : Controller
     private static List<ProductPrice> cart = new List<ProductPrice>();
 
     public ActionResult AddToCart(int id)
+{
+    var product = GetProductById(id);
+    if (product != null)
     {
-        var product = GetProductById(id); 
-        if (product != null)
+        var existingProduct = cart.FirstOrDefault(p => p.Id == id);
+        if (existingProduct != null)
         {
-            cart.Add(product);
-            ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
+            // Eğer ürün sepette zaten varsa, adedi artırabilirsiniz
+            existingProduct.Quantity += 1; // Yeni bir Quantity alanı ekleyelim
         }
-        return RedirectToAction("Index", "PriceProduct");
-    }
+        else
+        {
+            product.Quantity = 1; // Sepete yeni ürün eklerken adetini 1 olarak ayarlayalım
+            cart.Add(product);
+        }
 
-    public ActionResult Buy(int id)
-    {
-        var product = GetProductById(id);
-        if (product != null)
-        {
-            cart.Add(product);
-            ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
-        }
-        return RedirectToAction("Basket");
+        ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
     }
+    return RedirectToAction("Index", "PriceProduct");
+}
+
+public ActionResult Buy(int id)
+{
+    var product = GetProductById(id);
+    if (product != null)
+    {
+        var existingProduct = cart.FirstOrDefault(p => p.Id == id);
+        if (existingProduct != null)
+        {
+            // Eğer ürün sepette zaten varsa
+            existingProduct.Quantity += 1;
+        }
+        else
+        {
+            product.Quantity = 1; // Yeni eklenen ürünün adetini 1 olarak ayarlıyoruz
+            cart.Add(product);
+        }
+
+        ViewBag.CartItemCount = cart.Count; // Sepetteki ürün sayısını güncelle
+    }
+    return RedirectToAction("Basket");
+}
+
 
     public ActionResult Basket()
     {        

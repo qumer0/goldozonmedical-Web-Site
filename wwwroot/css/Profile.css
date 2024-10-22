@@ -1,0 +1,74 @@
+.profile-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.profile-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.profile-order-history,
+.profile-address-section,
+.profile-user-info {
+    margin-bottom: 20px;
+}
+
+.profile-order-history h2,
+.profile-address-section h2,
+.profile-user-info h2 {
+    color: #555;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.profile-order-history ul,
+.profile-address-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-order-history ul li,
+.profile-address-section ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.profile-address-section .form-group {
+    margin-bottom: 15px;
+}
+
+.profile-address-section .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.profile-address-section input[type="text"],
+.profile-address-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.profile-address-section button,
+.profile-user-info button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-address-section button:hover,
+.profile-user-info button:hover {
+    background-color: #218838;
+}

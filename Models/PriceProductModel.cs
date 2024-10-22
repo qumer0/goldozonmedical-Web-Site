@@ -7,6 +7,7 @@ namespace goldozonmedical_Web_Site.Models{
     public string? ImageUrl { get; set; }
     public decimal Price { get; set; }
     public decimal DiscountedPrice { get; set; }
-}
+        public int Quantity { get; internal set; }
+    }
 }
 
